@@ -1,4 +1,4 @@
-package com.example.event_master.components
+package com.example.event_master.ui.components
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost

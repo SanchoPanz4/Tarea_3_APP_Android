@@ -1,4 +1,4 @@
-package com.example.event_master.components
+package com.example.event_master.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
