@@ -4,10 +4,10 @@ import com.example.event_master.ui.components.Evento
 import kotlinx.coroutines.flow.Flow
 
 interface EventoRepository {
-    interface UsuarioRepository {
-        fun obtenerTodosUsuarios(): Flow<List<Evento>>
+
+        fun obtenerTodosEventos(): Flow<List<Evento>>
         suspend fun obtenerPorId(id: Int): Evento?
-        suspend fun insertarUsuario(usuario: Evento)
-        suspend fun borrarUsuario(usuario: Evento)
-    }
+        suspend fun insertarEvento(usuario: Evento)
+        suspend fun borrarEvento(usuario: Evento)
+
 }

@@ -1,10 +1,16 @@
 package com.example.event_master.data.repository
 
+import android.content.Context
+import com.example.event_master.data.local.AppDatabase
+import com.example.event_master.data.repository.evento.EventoRepository
+import com.example.event_master.data.repository.evento.EventoRepositoryImpl
+import com.example.event_master.ui.components.Evento
+
 interface AppContainer {
-    val usuarioRepository : UsuarioRepository
+    val eventoRepository : EventoRepository
 }
 class AppDataContainer(private val context: Context) : AppContainer {
-    override val usuarioRepository: UsuarioRepository by lazy {
-        UsuarioRepositoryImpl(AppDatabase.getDatabase(context))
+    override val eventoRepository: EventoRepository by lazy {
+        EventoRepositoryImpl(AppDatabase.getDatabase(context))
     }
 }

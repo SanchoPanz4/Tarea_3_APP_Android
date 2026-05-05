@@ -9,7 +9,7 @@ import com.example.event_master.data.local.entity.EventoEntity
 
 @Database(entities = [EventoEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun usuarioDao(): EventoDao
+    abstract fun eventoDao(): EventoDao
     companion object {
         @Volatile
         private var Instance: AppDatabase? = null
