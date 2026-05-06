@@ -1,6 +1,6 @@
 package com.example.event_master.data.repository.evento
 
-import com.example.event_master.ui.components.Evento
+import com.example.event_master.ui.model.Evento
 import kotlinx.coroutines.flow.Flow
 
 interface EventoRepository {
