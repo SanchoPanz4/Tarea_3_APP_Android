@@ -1,10 +1,15 @@
-package com.example.event_master.ui.components
+package com.example.event_master.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.example.event_master.ui.components.CategoriaViewMdole
+import com.example.event_master.ui.screens.HomeScreen
+import com.example.event_master.ui.screens.categoria.GestionCategoriaScreen
+import com.example.event_master.ui.screens.evento.DetalleScreen
+import com.example.event_master.ui.screens.evento.RegistroEventoScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -27,12 +32,17 @@ fun Navigation() {
     {
         composable<Home>
         {
-            HomeScreen(formViewModel = formViewModel,navController = navController)
+            HomeScreen(formViewModel = formViewModel, navController = navController)
         }
         composable<Detalle>
         {backStackEntry ->
             val args = backStackEntry.toRoute<Detalle>()
-            DetalleScreen(navController = navController,formViewMdole = formViewModel,args.Tipo, args.idEvento)
+            DetalleScreen(
+                navController = navController,
+                formViewMdole = formViewModel,
+                args.Tipo,
+                args.idEvento
+            )
         }
         composable<Gestion>
         {backStackEntry->
@@ -42,7 +52,7 @@ fun Navigation() {
         composable<Registro>
         {backStackEntry ->
             val args = backStackEntry.toRoute<Registro>()
-            RegistroEventoScreen(formViewModel , navController = navController)
+            RegistroEventoScreen(formViewModel, navController = navController)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.event_master.ui.components
+package com.example.event_master.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,11 +30,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.event_master.R
-
+import com.example.event_master.ui.components.CategoriaViewMdole
+import com.example.event_master.ui.navigation.Detalle
+import com.example.event_master.ui.navigation.Gestion
+import com.example.event_master.ui.navigation.Registro
 
 
 @Composable
-fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostController) {
+fun HomeScreen(formViewModel: CategoriaViewMdole, navController: NavHostController) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
@@ -107,7 +110,7 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
 
                             for(element in it.eventoLista) {
                                 Card(
-                                    onClick = {navController.navigate(Detalle(element.id,it.tipo), )}
+                                    onClick = {navController.navigate(Detalle(element.id, it.tipo), )}
                                 ) {
                                     Column(
                                         modifier = Modifier
