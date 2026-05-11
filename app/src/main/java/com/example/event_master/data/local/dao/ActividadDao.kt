@@ -16,7 +16,7 @@ interface ActividadDao {
     suspend fun obtenerPorId(id: Int): ActividadEntity
 
     @Query("SELECT * FROM ActividadEntity WHERE id IN (:actIDs)")
-    suspend fun obtenerPorId(actIDs: IntArray): List<ActividadEntity>
+    suspend fun obtenerPorId(actIDs: Int): List<ActividadEntity>
 
     @Query("SELECT * FROM ActividadEntity WHERE tipo LIKE :nombre LIMIT 1") //nombre del tipo
     suspend fun buscarPorTipo(nombre: String): ActividadEntity

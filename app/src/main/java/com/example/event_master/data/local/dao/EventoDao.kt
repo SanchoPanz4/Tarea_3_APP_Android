@@ -22,8 +22,8 @@ interface EventoDao {
     suspend fun buscarPorNombre(first: String, last: Int): EventoEntity
 
     @Insert
-    suspend fun insertarTodos(vararg usuarios: EventoEntity)
+    suspend fun insertarTodos(vararg eventos: EventoEntity)
 
     @Delete
-    suspend fun borrar(usuario: EventoEntity)
+    suspend fun borrar(evento: EventoEntity)
 }

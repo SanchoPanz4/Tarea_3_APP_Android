@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,7 +21,7 @@ class FormViewModel @Inject constructor(
 ): ViewModel(){
     var nombre by mutableStateOf("")
     var detalle by mutableStateOf("")
-    var vigente by mutableStateOf(false)
+    var fecha by mutableStateOf(Date())
     val eventos: StateFlow<List<Evento>> = eventoRepository.obtenerTodosEventos()
         .stateIn(
             scope = viewModelScope,
@@ -34,7 +35,7 @@ class FormViewModel @Inject constructor(
                 id = 0,
                 nombre = nombre,
                 detalle = detalle,
-                vigente = vigente
+                fecha = fecha.time
             )
             eventoRepository.insertarEvento(nuevoEvento)
             resetForm()
@@ -44,5 +45,6 @@ class FormViewModel @Inject constructor(
     {
         nombre = ""
         detalle = ""
+        fecha = Date()
     }
 }

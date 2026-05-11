@@ -1,4 +1,4 @@
-package com.example.event_master.ui.components
+package com.example.event_master.ui.screens.categoria
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,9 +22,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.event_master.R
+import com.example.event_master.ui.components.CategoriaViewMdole
+import com.example.event_master.ui.navigation.Home
 
 @Composable
-fun GestionCategoriaScreen(formViewMdole: CategoriaViewMdole,navController: NavHostController){
+fun GestionCategoriaScreen(formViewMdole: CategoriaViewMdole, navController: NavHostController){
 
     Scaffold(
 

@@ -1,4 +1,4 @@
-package com.example.event_master.ui.components
+package com.example.event_master.ui.screens.evento
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,8 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.example.event_master.R
+import com.example.event_master.ui.components.CategoriaViewMdole
+import com.example.event_master.ui.navigation.Home
+
 @Composable
-fun DetalleScreen(navController: NavHostController,formViewMdole: CategoriaViewMdole,categoriaEvento: String ,idEvento: Int)
+fun DetalleScreen(navController: NavHostController, formViewMdole: CategoriaViewMdole, categoriaEvento: String, idEvento: Int)
 {
     Scaffold(
 

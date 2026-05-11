@@ -1,4 +1,4 @@
-package com.example.event_master.ui.components
+/*package com.example.event_master.ui.components
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -34,7 +34,7 @@ class CategoriaViewMdole: ViewModel(){
 class Actividad(val tipo: String,val eventoLista: MutableList<Evento> = mutableListOf<Evento>())
 class Evento(val id: Int, val nombre: String, val detalle: String)
 
-
+*/
 // Consultar al profe viavilidad, Crear una clase Actividad que sea de tipo lista e id(automatica),
 // en la cual se guarden las actividades (Id, Nombre, Descripcion).
 // Los tipos de eventos se mostraran en el inicio como tarjetas, con una lista (tarjetas) de las

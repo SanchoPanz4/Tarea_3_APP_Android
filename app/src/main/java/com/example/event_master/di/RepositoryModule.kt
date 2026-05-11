@@ -1,6 +1,3 @@
-package com.example.event_master.di
-
-import com.example.event_master.data.repository.evento.EventoRepository
 import com.example.event_master.data.repository.evento.EventoRepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -13,7 +10,7 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun bindEventRepository(
+    abstract fun bindEventoRepository(
         eventoRepositoryImpl: EventoRepositoryImpl
-    ): EventoRepository
+    ): EventoRepositoryImpl
 }

@@ -9,10 +9,10 @@ import com.example.event_master.ui.model.Actividad
 interface ActividadRepository {
         fun obtenerTodos(): Flow<List<Actividad>>
 
-        suspend fun obtenerPorId(id: Int): ActividadEntity
-        suspend fun obtenerPorId(actIDs: IntArray): List<ActividadEntity>
-        suspend fun buscarPorTipo(nombre: String): ActividadEntity
-        suspend fun insertarActividad(vararg actividad: ActividadEntity)
-        suspend fun borrar(usuario: ActividadEntity)
+        suspend fun obtenerPorId(id: Int): Actividad
+        suspend fun obtenerPorId(actIDs: IntArray): List<Actividad>
+        suspend fun buscarPorTipo(nombre: String): Actividad
+        suspend fun insertarActividad(vararg actividad: Actividad)
+        suspend fun borrar(usuario: Actividad)
 
 }

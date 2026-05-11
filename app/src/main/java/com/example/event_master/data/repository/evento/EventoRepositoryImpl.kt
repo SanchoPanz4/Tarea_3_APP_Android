@@ -3,9 +3,10 @@ package com.example.event_master.data.repository.evento
 
 import com.example.event_master.data.local.AppDatabase
 import com.example.event_master.data.local.entity.EventoEntity
-import com.example.event_master.ui.components.Evento
+import com.example.event_master.ui.model.Evento
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.sql.Date
 import javax.inject.Inject
 
 class EventoRepositoryImpl @Inject constructor(
@@ -28,12 +29,14 @@ class EventoRepositoryImpl @Inject constructor(
 }
 fun EventoEntity.toDomain() = Evento(
     id = this.id,
-    nombre = this.nombre ?: "Sin nombre",
-    detalle = this.detalle
+    nombre = this.nombre?: "Sin nombre",
+    detalle = this.detalle ?: "Sin detalle",
+    fecha = this.fecha.time
 )
 fun Evento.toEntity() = EventoEntity(
     id = this.id,
     nombre = this.nombre,
-    detalle = this.detalle
+    detalle = this.detalle,
+    fecha = Date(this.fecha)
 )
 
