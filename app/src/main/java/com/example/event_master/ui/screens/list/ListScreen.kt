@@ -21,9 +21,8 @@ import com.example.event_master.ui.screens.forms.FormViewModel
 @Composable
 fun ListScreen(formViewModel: FormViewModel = hiltViewModel()) {
     val eventos by formViewModel.eventos.collectAsStateWithLifecycle()
-    Scaffold() {
-            innerPadding ->
-        Column (modifier = Modifier.padding(innerPadding)) {
+    Scaffold() { innerPadding ->
+        Column(modifier = Modifier.padding(innerPadding)) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
                 modifier = Modifier.padding(vertical = 10.dp, horizontal = 10.dp),
@@ -35,7 +34,7 @@ fun ListScreen(formViewModel: FormViewModel = hiltViewModel()) {
                         colors = CardDefaults.cardColors(
                             containerColor =
                                 CardDefaults.cardColors().containerColor
-                            )
+                        )
                     ) {
                         Column(
                             modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
@@ -50,3 +49,4 @@ fun ListScreen(formViewModel: FormViewModel = hiltViewModel()) {
             }
         }
     }
+}
