@@ -41,8 +41,7 @@ class FormViewModel @Inject constructor(
             resetForm()
         }
     }
-    private fun resetForm()
-    {
+    private fun resetForm(){
         nombre = ""
         detalle = ""
         fecha = Date()

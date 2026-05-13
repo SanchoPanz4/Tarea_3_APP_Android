@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.DateRange
@@ -31,12 +30,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.event_master.R
-import com.example.event_master.ui.components.CategoriaViewMdole
 import com.example.event_master.ui.navigation.Detalle
 import com.example.event_master.ui.navigation.Gestion
 import com.example.event_master.ui.navigation.Registro
-import com.example.event_master.ui.screens.avtividad.ActividadViewModel
-import com.example.event_master.ui.screens.forms.FormViewModel
+import com.example.event_master.ui.screens.actividad.ActividadViewModel
 
 
 @Composable

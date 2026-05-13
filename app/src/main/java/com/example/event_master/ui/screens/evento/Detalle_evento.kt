@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.example.event_master.R
-import com.example.event_master.ui.components.CategoriaViewMdole
+import com.example.event_master.ui.components.CategoriaViewModel
 import com.example.event_master.ui.navigation.Home
 
 @Composable

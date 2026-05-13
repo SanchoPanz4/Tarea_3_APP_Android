@@ -1,4 +1,4 @@
-package com.example.event_master.ui.screens.avtividad
+package com.example.event_master.ui.screens.actividad
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 
