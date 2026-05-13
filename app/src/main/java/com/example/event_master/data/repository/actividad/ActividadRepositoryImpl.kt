@@ -10,8 +10,7 @@ import javax.inject.Inject
 class ActividadRepositoryImpl @Inject constructor(
     private val db: AppDatabase
 ):ActividadRepository{
-
-    override fun obtenerTodos(): Flow<List<Actividad>>{
+    override fun obtenerTodosActividad(): Flow<List<Actividad>>{
         return db.actividadDao().obtenerTodos().map {listaEntities ->
             listaEntities.map{entity -> entity.toDomain()}
         }

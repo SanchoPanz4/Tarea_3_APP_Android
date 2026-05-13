@@ -5,7 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.event_master.data.repository.actividad.ActividadRepository
 import com.example.event_master.data.repository.evento.EventoRepository
+import com.example.event_master.ui.model.Actividad
 import com.example.event_master.ui.model.Evento
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -17,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FormViewModel @Inject constructor(
-    private val eventoRepository: EventoRepository
+    private val eventoRepository: EventoRepository, private val actividadRepository: ActividadRepository
 ): ViewModel(){
     var nombre by mutableStateOf("")
     var detalle by mutableStateOf("")
@@ -41,6 +43,27 @@ class FormViewModel @Inject constructor(
             resetForm()
         }
     }
+
+    var tipo by mutableStateOf("")
+
+    val actividades: StateFlow<List<Actividad>> = actividadRepository.obtenerTodosActividad()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
+
+    fun insertarActividad(){
+        viewModelScope.launch{
+            val auxLE = mutableListOf<Evento>()
+            val nuevaActividad = Actividad(
+                id = 0,
+                tipo = tipo,
+                eventoLista = auxLE
+            )
+        }
+    }
+
     private fun resetForm(){
         nombre = ""
         detalle = ""

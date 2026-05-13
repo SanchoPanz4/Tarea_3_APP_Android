@@ -5,7 +5,7 @@ import com.example.event_master.ui.model.Actividad
 
 
 interface ActividadRepository {
-        fun obtenerTodos(): Flow<List<Actividad>>
+        fun obtenerTodosActividad(): Flow<List<Actividad>>
         suspend fun obtenerPorId(id: Int): Actividad
         //suspend fun obtenerPorId(actIDs: IntArray): List<Actividad>
         suspend fun buscarPorTipo(nombre: String): Actividad
