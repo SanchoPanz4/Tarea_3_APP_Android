@@ -7,7 +7,8 @@ interface EventoRepository {
 
         fun obtenerTodosEventos(): Flow<List<Evento>>
         suspend fun obtenerPorId(id: Int): Evento?
-        suspend fun insertarEvento(usuario: Evento)
-        suspend fun borrarEvento(usuario: Evento)
+
+        suspend fun insertarEvento(evento: Evento)
+        suspend fun borrarEvento(evento: Evento)
 
 }

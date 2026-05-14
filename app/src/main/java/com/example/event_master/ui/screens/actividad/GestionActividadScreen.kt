@@ -1,4 +1,4 @@
-package com.example.event_master.ui.screens.categoria
+package com.example.event_master.ui.screens.actividad
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,16 +20,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.event_master.R
-import com.example.event_master.ui.components.CategoriaViewMdole
 import com.example.event_master.ui.navigation.Home
 
 @Composable
-fun GestionCategoriaScreen(formViewMdole: CategoriaViewMdole, navController: NavHostController){
-
+fun GestionActividadScreen(formViewModel: ActividadViewModel = hiltViewModel(), navController: NavHostController)
+{
     Scaffold(
-
     ) {innerPadding->
         Column(
             modifier = Modifier
@@ -39,16 +38,16 @@ fun GestionCategoriaScreen(formViewMdole: CategoriaViewMdole, navController: Nav
             verticalArrangement = Arrangement.Center
         ) {
             TextField(
-                value = formViewMdole.tipo,
-                onValueChange = {formViewMdole.tipo = it},
+                value = formViewModel.tipo,
+                onValueChange = {formViewModel.tipo = it},
                 label = { Text((stringResource(R.string.tipo_label))) },
-                isError = formViewMdole.tipo.isBlank() || formViewMdole.tipo.length <5
+                isError = formViewModel.tipo.isBlank() || formViewModel.tipo.length <5
             )
             Spacer(modifier = Modifier.size(22.dp))
             Button(onClick = {
-                formViewMdole.addActividad()
-                },
-                ) {
+                formViewModel.insertarActividad()
+            },
+            ) {
                 Icon(
                     imageVector = Icons.Default.Done,
                     contentDescription = "icono",

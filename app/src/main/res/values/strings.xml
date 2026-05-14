@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Event Master</string>
-    <string name="tipo_label">Tipo</string>>
-    <string name="descripcion_label">Descripcion</string>
-    <string name="nombre_label">Nombre</string>
-    <string name="agregarEvento_label">Agregar Evento </string>
-    <string name="agregarActividad_label">Agregar Actividad</string>
+    <string name="app_name" translatable="false">Event Master</string>
+    <string name="tipo_label" translatable="false">Tipo</string>>
+    <string name="descripcion_label" translatable="false">Descripcion</string>
+    <string name="nombre_label" translatable="false">Nombre</string>
+    <string name="agregarEvento_label" translatable="false">Agregar Evento </string>
+    <string name="agregarActividad_label" translatable="false">Agregar Actividad</string>
 </resources>

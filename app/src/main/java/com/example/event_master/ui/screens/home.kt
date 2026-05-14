@@ -23,24 +23,26 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.example.event_master.R
-import com.example.event_master.ui.components.CategoriaViewMdole
 import com.example.event_master.ui.navigation.Detalle
 import com.example.event_master.ui.navigation.Gestion
+import com.example.event_master.ui.navigation.Home
 import com.example.event_master.ui.navigation.Registro
-import com.example.event_master.ui.screens.avtividad.ActividadViewModel
-import com.example.event_master.ui.screens.forms.FormViewModel
+import com.example.event_master.ui.screens.actividad.ActividadViewModel
 
 
 @Composable
 fun HomeScreen(formViewModel: ActividadViewModel = hiltViewModel(), navController: NavHostController) {
+    val listaActividades by formViewModel.actividades.collectAsStateWithLifecycle()
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
@@ -87,7 +89,7 @@ fun HomeScreen(formViewModel: ActividadViewModel = hiltViewModel(), navControlle
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                items(formViewModel.listActividad){
+                items(listaActividades){ actividad ->
                     Card(
                     ){
                         Column(
@@ -107,13 +109,20 @@ fun HomeScreen(formViewModel: ActividadViewModel = hiltViewModel(), navControlle
                                     contentDescription = "icono",
                                     tint = Color.White
                                 )
-                                Text(it.tipo)
+                                Text(actividad.tipo)
                             }
 
 
-                            for(element in it.eventoLista) {
+                            actividad.eventoLista.forEachIndexed { index, element ->
                                 Card(
-                                    onClick = {navController.navigate(Detalle(element.id, it.tipo), )}
+                                    onClick = {
+                                        navController.navigate(
+                                            Detalle(
+                                                categoriaEvento = actividad.tipo,
+                                                idEvento = index
+                                            )
+                                        )
+                                    }
                                 ) {
                                     Column(
                                         modifier = Modifier

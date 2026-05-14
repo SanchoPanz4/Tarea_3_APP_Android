@@ -11,11 +11,3 @@ data class ActividadEntity(
     @ColumnInfo(name = "tipo") val tipo: String,
     @ColumnInfo(name = "eventoLista") val eventoLista: MutableList<Evento>
 )
-
-/*
-data class ActividadEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "tipo") val tipo: String,
-
-)
- */

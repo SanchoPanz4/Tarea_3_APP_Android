@@ -8,16 +8,12 @@ plugins {
 
 android {
     namespace = "com.example.event_master"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.event_master"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -58,7 +54,7 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
-
+    implementation("com.google.code.gson:gson:2.11.0")
     testImplementation(libs.junit)
 
 

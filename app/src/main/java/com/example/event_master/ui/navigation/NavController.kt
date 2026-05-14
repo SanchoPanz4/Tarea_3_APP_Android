@@ -6,36 +6,43 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.event_master.ui.screens.HomeScreen
+import com.example.event_master.ui.screens.actividad.GestionActividadScreen
+import com.example.event_master.ui.screens.evento.DetalleEventoScreen
+import com.example.event_master.ui.screens.evento.RegistroEventoScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
 object Home
 
 @Serializable
-data class Detalle(val idEvento: Int,val Tipo: String)
-@Serializable
 object Gestion
 
 @Serializable
-object Registro
+data class Detalle(val categoriaEvento: String, val idEvento: Int)
 
+@Serializable
+object Registro
 
 @Composable
 fun Navigation(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Home){
         composable<Home> {
-            HomeScreen(navController)
+            HomeScreen(navController = navController)
         }
-        composable<Guest> { backstackEntry ->
-            val args = backstackEntry.toRoute<Guest>()
-            GuestScreen(name = args.name)
+        composable<Gestion> {
+            GestionActividadScreen(navController = navController)
         }
-        composable<Form> {
-            FormScreen(navController = navController)
+        composable<Registro> {
+            RegistroEventoScreen(navController = navController)
         }
-        composable<ListUser> {
-            ListScreen()
+        composable<Detalle> { backStackEntry ->
+            val detailRoute: Detalle = backStackEntry.toRoute()
+            DetalleEventoScreen(
+                navController = navController,
+                categoriaEvento = detailRoute.categoriaEvento,
+                idEvento = detailRoute.idEvento
+            )
         }
     }
 }

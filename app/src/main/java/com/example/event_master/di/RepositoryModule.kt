@@ -1,3 +1,8 @@
+package com.example.event_master.di
+
+import com.example.event_master.data.repository.actividad.ActividadRepository
+import com.example.event_master.data.repository.actividad.ActividadRepositoryImpl
+import com.example.event_master.data.repository.evento.EventoRepository
 import com.example.event_master.data.repository.evento.EventoRepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -12,5 +17,10 @@ abstract class RepositoryModule {
     @Singleton
     abstract fun bindEventoRepository(
         eventoRepositoryImpl: EventoRepositoryImpl
-    ): EventoRepositoryImpl
+    ): EventoRepository
+    @Binds
+    @Singleton
+    abstract fun bindActividadRepository(
+        actividadRepositoryImpl: ActividadRepositoryImpl
+    ): ActividadRepository
 }

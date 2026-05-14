@@ -18,8 +18,8 @@ interface EventoDao {
     @Query("SELECT * FROM EventoEntity WHERE id IN (:userIds)")
     suspend fun obtenerPorId(userIds: IntArray): List<EventoEntity>
 
-    @Query("SELECT * FROM EventoEntity WHERE nombre LIKE :first LIMIT 1")
-    suspend fun buscarPorNombre(first: String, last: Int): EventoEntity
+//    @Query("SELECT * FROM EventoEntity WHERE nombre LIKE :first LIMIT 1")
+//    suspend fun buscarPorNombre(first: String, last: Int): EventoEntity
 
     @Insert
     suspend fun insertarTodos(vararg eventos: EventoEntity)

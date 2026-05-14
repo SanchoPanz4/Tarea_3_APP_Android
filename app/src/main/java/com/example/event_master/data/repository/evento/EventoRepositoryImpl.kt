@@ -20,21 +20,23 @@ class EventoRepositoryImpl @Inject constructor(
     override suspend fun obtenerPorId(id: Int): Evento {
         return database.eventoDao().obtenerPorId(id).toDomain()
     }
-    override suspend fun insertarEvento(usuario: Evento) {
-        return database.eventoDao().insertarTodos(usuario.toEntity())
+    override suspend fun insertarEvento(evento: Evento) {
+        return database.eventoDao().insertarTodos(evento.toEntity())
     }
-    override suspend fun borrarEvento(usuario: Evento) {
-        return database.eventoDao().borrar(usuario.toEntity())
+    override suspend fun borrarEvento(evento: Evento) {
+        return database.eventoDao().borrar(evento.toEntity())
     }
 }
 fun EventoEntity.toDomain() = Evento(
     id = this.id,
     nombre = this.nombre?: "Sin nombre",
     detalle = this.detalle ?: "Sin detalle",
+    tipo = this.tipo?: "Sin tipo",
     fecha = this.fecha.time
 )
 fun Evento.toEntity() = EventoEntity(
     id = this.id,
+    tipo = this.tipo,
     nombre = this.nombre,
     detalle = this.detalle,
     fecha = Date(this.fecha)
