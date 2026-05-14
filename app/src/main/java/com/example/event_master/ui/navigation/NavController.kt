@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.event_master.ui.screens.HomeScreen
+import com.example.event_master.ui.screens.list.ListScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -21,9 +22,9 @@ object Registro
 
 
 @Composable
-fun Navigation(){
+fun Navigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Home){
+    NavHost(navController = navController, startDestination = Home) {
         composable<Home> {
             HomeScreen(navController)
         }
